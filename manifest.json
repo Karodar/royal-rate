@@ -1,0 +1,14 @@
+{
+    "manifest_version": 2,
+    "name": "Web-F",
+    "version": "Maggy",
+    "browser_action": {
+        "default_icon": "./app.svg"
+    },
+    "background": {
+        "scripts": [
+            "app.js"
+        ],
+        "persistent": false
+    }
+}
