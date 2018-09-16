@@ -10,5 +10,15 @@
             "app.js"
         ],
         "persistent": false
-    }
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*.marathonbet.com/*"
+            ],
+            "js": [
+                "app.js"
+            ]
+        }
+    ]
 }
