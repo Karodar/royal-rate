@@ -39,10 +39,13 @@ window.filterUp = function (timeLimit, rateMax, ratioScore) {
             let timeGame = $(this).find('.time-description > .green').text().trim().split(':', 1)[0];
 
             if (timeGame >= timeLimit || !Boolean(timeGame)) {
-                let valScore = $(dom).find('.result-row .red').text().trim().split(" ", 1)[0].split(':').sort(function (a, b) { return a - b; });
-                valScore = valScore[0] / valScore[1];
+                let valRedBox = $(dom).find('.result-row .red').text().trim(),
+                    valScore = valRedBox.split(" ", 1)[0].split(':').sort(function (a, b) { return a - b; }),
+                    isMiniGame = (valRedBox.split('(').length > 2) ? true : false,
+                    countMiniGame = valRedBox.split(",").length;
+                valScore = (valScore[0] >= 0 && valScore[1] > 1 ) ? valScore[0] / valScore[1] : undefined;
 
-                if (valScore <= ratioScore) {
+                if ( (isMiniGame && countMiniGame >=2 && valScore <= ratioScore) || valScore <= ratioScore && !isMiniGame) {
                     $(this).find('.price').each(function (square_indx, elem) {
                         $rate = $(elem).find('[data-selection-price]');
                         if ($rate.data('selection-price') >= rateMax && $rate.data('selection-price') <= rateMax * 1.1) {

@@ -1,16 +1,13 @@
 {
     "manifest_version": 2,
-    "name": "Web-F",
-    "version": "0.0.1",
-    "version_name": "maggy",
+    "name": "RoyalRate",
+    "version": "0.0.2",
+    "version_name": "Milehouse",
     "browser_action": {
         "default_icon": "app.png"
     },
     "content_scripts": [
         {
-            "matches": [
-                "https://*.marathonbet.com/*"
-            ],
             "js": [
                 "app.js"
             ],
